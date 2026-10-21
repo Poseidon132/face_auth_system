@@ -1,0 +1,68 @@
+# Biometric data & private images (never push)
+data/*
+!data/.gitkeep
+models/*
+!models/.gitkeep
+reports/
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
+*.db
+*.onnx
+*.jpg
+*.jpeg
+*.png
+*.webp
+# Python / IDE
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+.vscode/settings.json
+# Archives / generated
+*.zip
+*.log
+.DS_Store
+Thumbs.db
+
+# FaceAuth local integration backup
+app.py.before_v16_dashboard.bak
+
+# Published dashboard metric screenshot only; other local faces remain excluded.
+!docs/screenshots/dashboard.png
+
+# Release and dataset safety
+*.bak
+*.backup
+*.sqlite
+*.sqlite-journal
+*.npz
+*.npy
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.safetensors
+*.tiff
+*.bmp
+*.mp4
+*.avi
+*.mov
+*.tgz
+*.tar.gz
+private_faces/
+private_pairs/
+outputs/
+*.csv.bak
+*backup*.py
+*_old.py
+*.old
+*.csv
+!docs/PAIR_CSV_EXAMPLE.csv
+!docs/benchmarks/lfw_1to1_test.csv
+!docs/benchmarks/lfw_1ton_test.csv

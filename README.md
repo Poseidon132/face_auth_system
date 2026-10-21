@@ -58,8 +58,7 @@ No FAISS, distributed database, proprietary pretrained network, or production-re
 ## Windows setup (VSCode / PowerShell)
 
 ```powershell
-cd E:\AIdemo
-ace_auth_system
+cd E:\AIdemoace_auth_system
 conda create -n faceauth python=3.11 -y
 conda activate faceauth
 python -m pip install -r requirements-dev.txt
@@ -101,8 +100,7 @@ python scripts/eval_pairs.py `
   --out reports/lfw_metrics_test_lfwprimary.json
 
 # IMPORTANT: invoke this in the CURRENT activated (faceauth) PowerShell.
-& .\scripts
-un_lfw_1n_windows.ps1
+& .\scriptsun_lfw_1n_windows.ps1
 ```
 
 The last script independently calibrates the 1:N thresholds on the validation identity pool and evaluates them on held-out test identities. Running `powershell -File ...` in a fresh shell can select the wrong Python environment; the call operator `&` in the activated shell avoids that issue. The LFW dataset is not in this repository; check its origin, license and usage restrictions separately.

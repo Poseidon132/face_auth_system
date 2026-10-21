@@ -1,0 +1,6 @@
+# Dedicated Python 3.11 environment recommended (no facenet-pytorch/torch version conflict).
+opencv-python>=4.8,<5
+numpy>=1.24,<3
+Pillow>=10,<13
+streamlit>=1.35,<2
+pandas>=2,<4

@@ -1,0 +1,2 @@
+dataset,protocol,split,pairs,processed,skipped,accuracy,tar,far,frr,roc_auc,threshold
+LFW funneled,custom_dev_pairs_lfw_largest,test,1000,1000,0,0.986,0.982,0.01,0.018,0.9937,0.3028
