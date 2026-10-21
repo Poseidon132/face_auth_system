@@ -8,13 +8,37 @@ This is a locally run, consent-based **research and portfolio prototype** for fa
 
 **Security boundary:** A photo upload can pass the demo; it does not include reliable liveness detection, database encryption, administrator access control, or robust anti-spoofing. Do not use this prototype for real door access, attendance, payment or high-stakes authentication.
 
-## Demonstration
+## 系统运行截图 / Streamlit Demonstration
 
-The screenshot below intentionally includes **only aggregate experimental metrics**. It does not contain biometric photos or personal identity information.
+下列四张截图来自本地 FaceAuth 系统功能验收。为了在公开仓库中保护人物肖像与第三方素材，前 3 张截图已**遮盖人脸照片显示区域**；程序界面、分数、耗时等信息保持原样。截图中的 `1.0000` 是一次功能演示结果，**不能代表跨照片的泛化准确率**；独立实验表现见下文 LFW 测试结果。
 
-![LFW results dashboard](docs/screenshots/dashboard.png)
+These are real local Streamlit UI screenshots. Portrait previews in the first three are redacted before public release; original biometric photos, feature embeddings, and the SQLite identity database are not included. Some captures may show an earlier UI banner; the published source release is **v1.6**.
 
-The live app has five tabs: registration, 1:1 verification, 1:N identification, database and logs, and experiments. Please use **your own or explicitly consented images** for local trials. Registration and live verification reject multiple detected faces; the LFW benchmark has a separate documented subject-face selection mode.
+### 1. 人员注册 / Face enrollment
+
+支持用户授权确认、单人脸检测和多张照片的特征模板注册。演示中已成功注册 3 条人脸特征。
+
+![人员注册 — Face enrollment](docs/screenshots/registration.webp)
+
+### 2. 1:1 身份验证 / Face verification
+
+选择声明身份后，与该身份的已登记模板逐一比对，输出余弦相似度、阈值及耗时。
+
+![1:1 身份验证 — Face verification](docs/screenshots/verification.webp)
+
+### 3. 1:N 身份检索 / Face identification
+
+对本地身份库进行向量检索，返回达标的候选身份；低于阈值时返回未知身份。
+
+![1:N 身份检索 — Face identification](docs/screenshots/identification.webp)
+
+### 4. LFW 实验看板 / Evaluation dashboard
+
+展示实际运行的 1:1 Accuracy、FAR、FRR、ROC-AUC，以及 1:N Rank-1、DIR、FPIR 和阈值。
+
+![LFW 1:1 and 1:N evaluation dashboard](docs/screenshots/dashboard.webp)
+
+The live app has five tabs: registration, 1:1 verification, 1:N identification, database and logs, and experiments. Use only your own or expressly consented photos for local trials. Live registration and authentication reject multiple detected faces, while LFW benchmarking uses a separately documented subject-face selection policy.
 
 ## Evaluation results (observed, not simulated)
 
@@ -114,7 +138,7 @@ face_auth_system/
   scripts/        model download, dataset preparation, evaluation and camera demo
   tests/          pytest tests (including GitHub privacy checks)
   docs/benchmarks/   non-biometric metric summaries only
-  docs/screenshots/  approved dashboard-only public screenshot
+  docs/screenshots/  privacy-redacted UI demonstrations and LFW dashboard
   docs/         protocols, security/privacy notes and release instructions
   data/          local dataset and face-template storage (ignored by Git)
   models/        local ONNX weights (ignored by Git)

@@ -33,8 +33,11 @@ Thumbs.db
 # FaceAuth local integration backup
 app.py.before_v16_dashboard.bak
 
-# Published dashboard metric screenshot only; other local faces remain excluded.
-!docs/screenshots/dashboard.png
+# Published privacy-redacted demo screenshots only; other images remain excluded.
+!docs/screenshots/registration.webp
+!docs/screenshots/verification.webp
+!docs/screenshots/identification.webp
+!docs/screenshots/dashboard.webp
 
 # Release and dataset safety
 *.bak
